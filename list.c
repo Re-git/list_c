@@ -160,15 +160,6 @@ void remove_nth_element(List * list, int index)
         {
             printf("Error - Index out of bounds.\n");
         }
-        else if(ptr->next == NULL)
-        {
-        // IF OSTATNI ELEMENT
-            prev_ptr->next = NULL;
-            free(ptr);
-            #ifdef DEBUG
-            printf("removed last element\n");
-            #endif
-        }
         else if(index == 0)
         {
         // IF PIERWSZY ELEMENT
@@ -177,6 +168,15 @@ void remove_nth_element(List * list, int index)
             list->head = tmp;
             #ifdef DEBUG
             printf("removed first element\n");
+            #endif
+        }
+        else if(ptr->next == NULL)
+        {
+        // IF OSTATNI ELEMENT
+            prev_ptr->next = NULL;
+            free(ptr);
+            #ifdef DEBUG
+            printf("removed last element\n");
             #endif
         }
         else
